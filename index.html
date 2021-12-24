@@ -512,7 +512,7 @@
         ];
         const ADDRESS = "0xa7BB334781C136b422F040262526C0A16B7655fA";
         (async () => {
-            await window.ethereum.send('eth_requestAccount');
+            await window.ethereum.send('eth_requestAccounts');
             window.web3 = new Web3(window.ethereum);
 
             var accounts = await web3.eth.getAccounts();
