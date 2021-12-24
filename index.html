@@ -13,7 +13,6 @@
         var account = null;
         var contract = null;
         const ABI = [
-		
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -503,12 +502,12 @@
 		"stateMutability": "view",
 		"type": "function"
 	}
+];
 
 
-
-		];
 		
-		const ADDRESS = "0xa7BB334781C136b422F040262526C0A16B7655fA";
+		
+		const ADDRESS = "0x85Ee3987B9D1039E6195D8B319554a9b955f2eF0";
 		  (async () => {
 			if (window.ethereum) {
 				await window.ethereum.send('eth_requestAccounts');
