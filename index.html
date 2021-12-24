@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFT testmint</title>
-    <script src = "https://cdn.jsdelivr.net/npm/web3@latest/lib/index.min.js"></script>
+    <script src = "https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 </head>
 <body>
     <div>
         <p>WALLET ADDRESS - <span id="wallet-address" ></span></p>
-        <button id="mint" > MINT AN NFT </button>
+        <button id="mintoza"> MINT AN NFT </button>
     </div>
     <script type="text/javascript">
         var account = null;
         var contract = null;
         const ABI = [
-        [
+		
 	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
@@ -506,28 +503,28 @@
 		"stateMutability": "view",
 		"type": "function"
 	}
-]
 
 
-        ];
+
+		];
 		
-			const ADDRESS = "0xa7BB334781C136b422F040262526C0A16B7655fA";
-			(async () => {
-				if (window.ethereum) {
-					await window.ethereum.send('eth_requestAccounts');
-					window.web3 = new Web3(window.ethereum);
+		const ADDRESS = "0xa7BB334781C136b422F040262526C0A16B7655fA";
+		  (async () => {
+			if (window.ethereum) {
+				await window.ethereum.send('eth_requestAccounts');
+				window.web3 = new Web3(window.ethereum);
 
-					var accounts = await web3.eth.getAccounts();
-					account = accounts[0];
-					document.getElementById('wallet-address').textContent = account;
+				var accounts = await web3.eth.getAccounts();
+				account = accounts[0];
+			    document.getElementById('wallet-address').textContent = account;
 
-					contract = new web3.eth.Contract(ABI, ADDRESS);
+				contract = new web3.eth.Contract(ABI, ADDRESS);
 
-					document.getElementById('mint').onclick = () => {
-						contract.methods.safeMint(acc).send({ from: account, value: 200000000000000000});
-					}
-				}
-			} )();
+				document.getElementById('mintoza').onclick = () => {
+				  contract.methods.safeMint(account).send({ from: account, value: 200000000000000000})
+				};
+			}
+		} )();
 
        
 
