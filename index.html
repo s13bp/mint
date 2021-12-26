@@ -12,6 +12,8 @@
     <script type="text/javascript">
         var account = null;
         var contract = null;
+		
+
         const ABI = [
 	{
 		"inputs": [],
@@ -121,13 +123,13 @@
 			},
 			{
 				"internalType": "string",
-				"name": "uri",
+				"name": "_tokenURI",
 				"type": "string"
 			}
 		],
 		"name": "safeMint",
 		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -454,7 +456,7 @@
 ];
 		
 		
-		const ADDRESS = "0xD10b610ecAfb1178A02122dfef87907A76ADBf91";
+		const ADDRESS = "0x74344C316736921134820C909Ee333ADa7e62cBD";
 		  (async () => {
 			if (window.ethereum) {
 				await window.ethereum.send('eth_requestAccounts');
@@ -467,7 +469,7 @@
 				contract = new web3.eth.Contract(ABI, ADDRESS);
 
 				document.getElementById('mintoza').onclick = () => {
-				  contract.methods.safeMint(account, uri).send({ from: account, value: 17170000000000000})
+				  contract.methods.safeMint(account, "https://api.npoint.io/5d5ad2c4ae6537c8f7e6").send({ from: account, value: 17170000000000000})
 				};
 			}
 		} )();
